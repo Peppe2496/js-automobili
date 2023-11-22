@@ -89,4 +89,99 @@ console.log(autoDiesel);
 console.log(autoRestanti);
 
 
+for(let i=0; i<autoBenzina.length; i++){
+    document.getElementById("card").innerHTML +=`
+    <div class="card">
+    <div class="card-header">
+      
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Marca auto: ${autoBenzina[i].marca}</li>
+      <li class="list-group-item">${autoBenzina[i].model}</li>
+      <li class="list-group-item">${autoBenzina[i].typeOfFuel}</li>
+    </ul>
+  </div>
+    
+  `
+}
+
+for(let i=0; i<autoDiesel.length; i++){
+    document.getElementById("card").innerHTML +=`
+    <div class="card">
+    <div class="card-header">
+      
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">${autoDiesel[i].marca}</li>
+      <li class="list-group-item">${autoDiesel[i].model}</li>
+      <li class="list-group-item">${autoDiesel[i].typeOfFuel}</li>
+    </ul>
+  </div>
+    
+  `
+}
+
+
+for(let i=0; i<autoRestanti.length; i++){
+    document.getElementById("card").innerHTML +=`
+    <div class="card">
+    <div class="card-header">
+      
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">${autoRestanti[i].marca}</li>
+      <li class="list-group-item">${autoRestanti[i].model}</li>
+      <li class="list-group-item">${autoRestanti[i].typeOfFuel}</li>
+    </ul>
+  </div>
+    
+  `
+}
+
+
+
+
+
+
+function addCar(event) {
+    event.preventDefault();
+
+    console.log("AGGIUNTO UNA NUOVA AUTO!");
+
+    let newMarca = document.getElementById("Marca").value;
+    let newModel = document.getElementById("Model").value;
+    let newTypeOfFuel = document.getElementById("Type-of-Fuel").value;
+
+
+    
+
+
+    let newCar = {
+        marca: newMarca,
+        model: newModel,
+        typeOfFuel: newTypeOfFuel,
+        
+    };
+
+    cars.push(newCar);
+
+    // Posso ora costruirmi la CARD dello studente completo usando il template literal
+    // e le informazioni che ho a disposizione e che mi sono preventivamente costruito ( lista materie preferite )
+    let card = `
+    <div class="card">
+    <div class="card-header">
+      
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">${newCar.marca}</li>
+      <li class="list-group-item">${newCar.model}</li>
+      <li class="list-group-item">${newCar.typeOfFuel}</li>
+    </ul>
+  </div>
+    `;
+
+    // innietto la card costruita tramite la concatenazione del vecchio HTML che c'è con la nuova card da inserire
+    document.getElementById("card").innerHTML += card;
+
+}
 
